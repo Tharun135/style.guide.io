@@ -15,13 +15,25 @@ def check_grammar_word_choice(content, doc, suggestions):
             line_number = get_line_number(content, match.start())
             suggestions.append(f"Line {line_number}: {guidance}")
 
-    # Rule: Use 'ask' instead of 'request'
+    # Rule: Use 'ask' instead of 'request' if 'request' is used as a verb
     request_pattern = r'\brequest\b'
     matches = re.finditer(request_pattern, content, flags=re.IGNORECASE)
     for match in matches:
-        # Ensure 'request' is used as a verb
-        if doc[match.start()].pos_ == 'VERB':
-            line_number = get_line_number(content, match.start())
-            suggestions.append(f"Line {line_number}: Use 'ask' instead of '{match.group()}' as a verb.")
+        # Instead of doc[match.start()], we create a char_span
+        start_char = match.start()
+        end_char = match.end()
+        span = doc.char_span(start_char, end_char)
 
+        # If spaCy can't map these offsets to token boundaries, skip
+        if span is None:
+            continue
+
+        # Check if any token in this char_span is used as a VERB
+        if any(token.pos_ == "VERB" for token in span):
+            line_number = get_line_number(content, start_char)
+            suggestions.append(
+                f"Line {line_number}: Use 'ask' instead of '{match.group()}' as a verb."
+            )
+    
+    # Additional grammar rules can be added here as needed
     pass

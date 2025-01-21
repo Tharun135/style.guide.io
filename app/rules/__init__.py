@@ -26,6 +26,8 @@ from .c.callback_terms import check_callback_terms
 from .c.callout_terms import check_callout_terms
 from .c.can_may_terms import check_can_may_terms
 from .c.cancel_terms import check_cancel_terms
+from .c.run_vs_carryout_terms import check_run_vs_carryout_terms
+from .c.css_terms import check_css_terms
 
 rule_functions = [
     check_accessibility_terms,
@@ -55,7 +57,9 @@ rule_functions = [
     check_callback_terms,
     check_callout_terms, 
     check_can_may_terms,
-    check_cancel_terms
+    check_cancel_terms,
+    check_run_vs_carryout_terms,
+    check_css_terms,
 ]
 
 __all__ = ['rule_functions']
