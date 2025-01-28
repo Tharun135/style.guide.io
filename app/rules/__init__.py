@@ -28,6 +28,9 @@ from .c.can_may_terms import check_can_may_terms
 from .c.cancel_terms import check_cancel_terms
 from .c.run_vs_carryout_terms import check_run_vs_carryout_terms
 from .c.css_terms import check_css_terms
+from .c.catalog_terms import check_catalog_terms
+from .word_choice.contractions_rule import check_contractions
+from .word_choice.concise_simple_words import check_concise_simple_words
 
 rule_functions = [
     check_accessibility_terms,
@@ -60,6 +63,9 @@ rule_functions = [
     check_cancel_terms,
     check_run_vs_carryout_terms,
     check_css_terms,
+    check_catalog_terms,
+    check_contractions,
+    check_concise_simple_words,
 ]
 
 __all__ = ['rule_functions']
