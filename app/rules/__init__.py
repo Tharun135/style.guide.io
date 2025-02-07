@@ -2,14 +2,13 @@ from .accessibility_terms.accessibility_terms import check_accessibility_terms
 from .ai_bot_terms.ai_bot_terms import check_ai_bot_terms
 from .cloud_computing_terms.cloud_computing_terms import check_cloud_computing_terms
 from .computer_device_terms.computer_device_terms import check_computer_device_terms
-from .date_time_terms.date_time_terms import check_date_time_terms
 from .keys_keyboard_shortcuts.keys_keyboard_shortcuts import check_keys_keyboard_shortcuts
 from .mouse_interaction_terms.mouse_interaction_terms import check_mouse_interaction_terms
 from .security_terms.security_terms import check_security_terms
 from .special_characters.special_characters import check_special_characters
 from .touch_pen_interaction_terms.touch_pen_interaction_terms import check_touch_pen_interaction_terms
 from .units_of_measure_terms.units_of_measure_terms import check_units_of_measure_terms
-from .dimensional_terms.dimensional_terms import check_dimensional_terms
+from .style_guide.style_guide import check_style_guide
 from .terminology_usage import check_terminology_usage
 from .style_formatting import check_style_formatting
 from .grammar_word_choice import check_grammar_word_choice
@@ -37,14 +36,13 @@ rule_functions = [
     check_ai_bot_terms,
     check_cloud_computing_terms,
     check_computer_device_terms,
-    check_date_time_terms,
     check_keys_keyboard_shortcuts,
     check_mouse_interaction_terms,
     check_security_terms,
     check_special_characters,
     check_touch_pen_interaction_terms,
     check_units_of_measure_terms,
-    check_dimensional_terms,
+    check_style_guide,
     check_terminology_usage,
     check_style_formatting,
     check_grammar_word_choice,
